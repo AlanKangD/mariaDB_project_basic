@@ -36,4 +36,11 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("/index")
+	public String indexTest() {
+		
+		
+		return "/index";
+	}
+	
 }

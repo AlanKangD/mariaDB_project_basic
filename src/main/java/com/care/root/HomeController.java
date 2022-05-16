@@ -43,4 +43,9 @@ public class HomeController {
 		return "/index";
 	}
 	
+	@RequestMapping("kakao/kakaoLoginSucess")
+	public String kakaologin() {
+		return "kakao/kakaoLoginSucess";
+	}
+	
 }

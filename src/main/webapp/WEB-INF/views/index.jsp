@@ -10,7 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- jquery를 사용할 때 소스 -->
 <script type="text/javascript">
-
+	var email = '';
 
 	window.Kakao.init("332d92e9a0d5c0d69fe0b4ee95672a83");
 	
@@ -26,6 +26,13 @@
 	        	  console.log(response.kakao_account.profile)
 	        	  console.log(response.kakao_account.profile['nickname'])
 	        	  console.log(response.kakao_account.profile['profile_image_url'])
+	        	 var form = {nickname : response.kakao_account.profile['nickname'] ,
+	        		  				profile_image : response.kakao_account.profile['profile_image_url']}
+	        	 console.log(form)
+	        	  
+	        	  ajax(form);
+	        	 
+	        	  
      	  
 	        	 // location.href="/kakao/kakaoLoginSucess";  로그인 처리되면 해당 경로로 이동시킴
 	        	/*
@@ -44,7 +51,25 @@
 	      },
 	    })
 	  }
-
+	
+	
+	function ajax(form) {
+		  $.ajax({
+			  url : "kakao/loginFun",
+			  type : "post", 
+			  data : JSON.stringify(form),
+			  datatype : 'json',
+		  	  contentType : "application/json; charset=utf-8",
+		  	  success : function(result) {
+		  		  console.log('성공')
+		  	  },
+		  	  error : function(){
+		  		  
+		  	  }
+			  
+			  
+		  })
+	  }
 </script>
 
 
